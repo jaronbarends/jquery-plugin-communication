@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>jQuery Plugin Communication</title>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" href="demo/css/demo.css">
+</head>
+
+<body>
+	<h1>jQuery Plugin Communication</h1>
+
+
+	<div id="sendingPluginElement" class="pluginElement">
+		[holder for sending plugin]
+		<div class="pluginContent">
+		</div>
+
+		<script>
+			/* zorg dat objectstructuur aanwezig is */
+			window.EFCS = window.EFCS || {};
+			EFCS.plugins = EFCS.plugins || {};
+			EFCS.plugins.sendingPlugin = EFCS.plugins.sendingPlugin || {};
+			EFCS.plugins.sendingPlugin.instances = EFCS.plugins.sendingPlugin.instances || [];
+			
+			//push object met settings voor deze instance in array; wordt dan on dom ready geinitialiseerd
+			EFCS.plugins.sendingPlugin.instances.push({
+				selector: "#sendingPluginElement .pluginContent",
+				options: {
+					text: "A new text value for sendingPlugin",
+					message: "I am a really nice message"
+				}
+			});
+		</script>
+	</div>
+
+
+	<div id="receivingPluginElement" class="pluginElement">
+		[holder for receiving plugin]
+		<div class="pluginContent">
+		</div>
+
+		<script>
+			/* zorg dat objectstructuur aanwezig is */
+			window.EFCS = window.EFCS || {};
+			EFCS.plugins = EFCS.plugins || {};
+			EFCS.plugins.receivingPlugin = EFCS.plugins.receivingPlugin || {};
+			EFCS.plugins.receivingPlugin.instances = EFCS.plugins.receivingPlugin.instances || [];
+			
+			//push object met settings voor deze instance in array; wordt dan on dom ready geinitialiseerd
+			EFCS.plugins.receivingPlugin.instances.push({
+				selector: "#receivingPluginElement .pluginContent",
+				options: {
+					text: "A new text value",
+					message: "I am a really nice message too"
+				}
+			});
+		</script>
+	</div>
+
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+	<script src="js/jquery.sendingPlugin.js"></script>
+	<script src="js/jquery.receivingPlugin.js"></script>
+	
+</body>
+</html>
