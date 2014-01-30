@@ -20,8 +20,7 @@
 		* @returns {undefined}
 		*/
 		var clickHandler = function(e) {
-
-			console.log(pluginName+' says:\n'+config.message);
+			alert(pluginName+' says:\n'+config.message);
 		};
 		
 	

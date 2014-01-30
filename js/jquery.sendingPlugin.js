@@ -29,7 +29,7 @@
 
 			$(document).trigger(eventName, data);
 
-			console.log(pluginName+' says:\n'+config.message);
+			alert(pluginName+' says:\n'+config.message);
 		};
 		
 	
